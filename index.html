@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Sejarah Tingkatan 1 - Praktis Sumatif UASA 2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Fredoka', 'cursive', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#2563eb',
+                            indigo: '#4f46e5',
+                            purple: '#7c3aed',
+                            yellow: '#f59e0b',
+                            green: '#10b981',
+                            pink: '#ec4899',
+                            bg: '#f0f9ff'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 50%, #fef3c7 100%);
+            min-height: 100vh;
+        }
+        .card-friendly {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border: 4px solid #ffffff;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+        .btn-friendly {
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .btn-friendly:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.015);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.12);
+        }
+        .btn-friendly:active:not(:disabled) {
+            transform: translateY(1px) scale(0.99);
+        }
+        .bubble-glow {
+            animation: bounceSlow 3s infinite ease-in-out;
+        }
+        @keyframes bounceSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0f2fe;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-slate-800 antialiased selection:bg-amber-300">
+
+    <!-- Header Navbar -->
+    <header class="w-full bg-white/95 backdrop-blur-md border-b-4 border-blue-500 sticky top-0 z-50 shadow-md">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-tr from-blue-600 to-indigo-500 text-white p-2.5 rounded-2xl shadow-md border-2 border-white bubble-glow">
+                    <i class="fa-solid fa-landmark text-2xl text-amber-300"></i>
+                </div>
+                <div>
+                    <h1 class="font-display text-xl sm:text-2xl font-bold text-blue-700 leading-none">
+                        MISI SEJARAH T1 🚀
+                    </h1>
+                    <p class="text-xs sm:text-sm text-emerald-700 font-extrabold tracking-wide mt-0.5">Praktis Sumatif Buku Teks • UASA 2026</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <!-- Butang Full Screen -->
+                <button id="fullscreenBtn" onclick="toggleFullScreen()" class="flex items-center gap-2 bg-purple-50 hover:bg-purple-100 text-purple-700 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold transition-all border-2 border-purple-200">
+                    <i id="fullscreenIcon" class="fa-solid fa-expand text-purple-600"></i>
+                    <span id="fullscreenStatus" class="hidden sm:inline">Skrin Penuh</span>
+                </button>
+
+                <!-- Butang Muzik -->
+                <button id="bgmToggleBtn" onclick="toggleBGM()" class="flex items-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold transition-all border-2 border-blue-200">
+                    <i id="bgmIcon" class="fa-solid fa-music text-amber-500"></i>
+                    <span id="bgmStatus" class="hidden sm:inline">Muzik: ON</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow flex items-center justify-center p-3 sm:p-6">
+        <div class="w-full max-w-3xl">
+
+            <!-- 1. LANDING & REGISTRATION SCREEN -->
+            <section id="startScreen" class="card-friendly rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden my-2 border-t-8 border-t-blue-600">
+                <div class="relative z-10">
+                    <span class="inline-block bg-blue-100 text-blue-900 border-2 border-blue-300 font-black text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3 shadow-sm bubble-glow">
+                        ⭐ Praktis Sumatif Buku Teks UASA Tingkatan 1 ⭐
+                    </span>
+                    
+                    <h2 class="font-display text-3xl sm:text-5xl font-black text-slate-800 mb-3 leading-tight">
+                        Latihan Objektif <span class="text-blue-600">Bab 1 – Bab 8</span> 📚✨
+                    </h2>
+                    
+                    <p class="text-slate-600 font-bold text-sm sm:text-base mb-6 max-w-xl mx-auto leading-relaxed">
+                        Koleksi lengkap <span class="text-blue-700 font-extrabold">44 Soalan Praktis Sumatif (Bahagian A)</span> mengikut format buku teks KSSM & UASA terkini dengan <span class="text-purple-600 font-extrabold">Bantuan Booster Power-Up</span>!
+                    </p>
+
+                    <!-- Student Registration & Topic Filter -->
+                    <div class="bg-blue-50/70 p-5 sm:p-6 rounded-3xl max-w-lg mx-auto mb-6 border-2 border-blue-200 text-left shadow-inner">
+                        <label class="block text-xs font-black text-blue-800 uppercase mb-1">Nama Pelajar / Murid <span class="text-rose-500">*</span></label>
+                        <div class="relative mb-3">
+                            <i class="fa-solid fa-user-graduate absolute left-3.5 top-3.5 text-blue-500 text-lg"></i>
+                            <input type="text" id="playerName" placeholder="Contoh: Muhammad Danish" class="w-full bg-white border-2 border-blue-200 rounded-2xl py-3 pl-10 pr-3 text-sm font-bold text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                        </div>
+
+                        <label class="block text-xs font-black text-blue-800 uppercase mb-1">Kelas <span class="text-rose-500">*</span></label>
+                        <div class="relative mb-3">
+                            <i class="fa-solid fa-school absolute left-3.5 top-3.5 text-blue-500 text-lg"></i>
+                            <input type="text" id="playerClass" placeholder="Contoh: 1 Cekal" class="w-full bg-white border-2 border-blue-200 rounded-2xl py-3 pl-10 pr-3 text-sm font-bold text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                        </div>
+
+                        <label class="block text-xs font-black text-blue-800 uppercase mb-1">Pilih Bab Ujian</label>
+                        <div class="relative mb-1">
+                            <i class="fa-solid fa-book-bookmark absolute left-3.5 top-3.5 text-blue-500 text-base"></i>
+                            <select id="topicFilter" onchange="updateSelectedTopicInfo()" class="w-full bg-white border-2 border-blue-200 rounded-2xl py-3 pl-10 pr-3 text-xs sm:text-sm font-bold text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                <option value="all">🌟 Semua Bab 1 - 8 (Lengkap 44 Soalan)</option>
+                                <option value="bab1">Bab 1: Mengenali Sejarah (6 Soalan)</option>
+                                <option value="bab2">Bab 2: Zaman Air Batu (7 Soalan)</option>
+                                <option value="bab3">Bab 3: Zaman Prasejarah (5 Soalan)</option>
+                                <option value="bab4">Bab 4: Mengenali Tamadun (5 Soalan)</option>
+                                <option value="bab5">Bab 5: Tamadun Awal Dunia (5 Soalan)</option>
+                                <option value="bab6">Bab 6: Peningkatan Tamadun Yunani & Rom (6 Soalan)</option>
+                                <option value="bab7">Bab 7: Peningkatan Tamadun India & China (5 Soalan)</option>
+                                <option value="bab8">Bab 8: Tamadun Islam & Sumbangannya (5 Soalan)</option>
+                            </select>
+                        </div>
+                        <p id="topicSummaryText" class="text-[11px] font-bold text-blue-600 mt-1.5 ml-1">
+                            Jumlah soalan yang akan dijawab: 44 soalan
+                        </p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center gap-3">
+                        <button onclick="startQuiz()" class="btn-friendly bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-display text-lg sm:text-xl font-bold px-8 py-3.5 rounded-2xl shadow-lg border-2 border-emerald-300 inline-flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-circle-play text-2xl"></i>
+                            <span>MULA LATIHAN!</span>
+                        </button>
+                        <button onclick="toggleLeaderboardModal(true)" class="btn-friendly bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 text-slate-900 font-display text-lg sm:text-xl font-bold px-6 py-3.5 rounded-2xl shadow-lg border-2 border-amber-200 inline-flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-trophy text-slate-900"></i>
+                            <span>Papan Ranking</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. QUIZ SCREEN -->
+            <section id="quizScreen" class="hidden card-friendly rounded-3xl p-5 sm:p-8 relative my-2 border-t-8 border-t-blue-600">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 mb-4 pb-3 border-b-2 border-slate-100">
+                    <div class="flex items-center justify-between sm:justify-start gap-3">
+                        <span id="subtopicBadge" class="bg-blue-100 text-blue-900 border-2 border-blue-200 text-xs font-black px-3.5 py-1.5 rounded-xl uppercase tracking-wider">
+                            Bab 1: Mengenali Sejarah
+                        </span>
+                        <div class="flex items-center gap-2 text-amber-900 text-xs sm:text-sm font-black bg-amber-100 px-3.5 py-1.5 rounded-xl border-2 border-amber-200">
+                            <i class="fa-solid fa-star text-amber-500 text-base"></i>
+                            <span>MARKAH: <span id="liveScore" class="text-base text-blue-700">0</span></span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 text-xs font-extrabold text-slate-700 bg-slate-100 px-3.5 py-1.5 rounded-xl border border-slate-200">
+                        <i class="fa-solid fa-user-check text-emerald-600"></i>
+                        <span id="displayPlayerInfo">Pelajar: -</span>
+                    </div>
+                </div>
+
+                <!-- Booster Cards Panel -->
+                <div class="mb-4 bg-gradient-to-r from-purple-100 via-pink-100 to-amber-100 p-3 rounded-2xl border-2 border-purple-200 shadow-sm flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-xs font-black text-purple-900 uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fa-solid fa-wand-magic-sparkles text-purple-600 text-sm"></i> Bantuan Booster:
+                    </span>
+                    <div class="flex items-center gap-2">
+                        <button id="btn5050" onclick="useBooster5050()" class="btn-friendly bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-extrabold px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow border border-indigo-300">
+                            <i class="fa-solid fa-scissors text-amber-300"></i>
+                            <span>50:50 (<span id="count5050">2</span>)</span>
+                        </button>
+                        <button id="btnHint" onclick="useBoosterHint()" class="btn-friendly bg-amber-500 hover:bg-amber-600 disabled:opacity-40 disabled:cursor-not-allowed text-slate-900 text-xs font-extrabold px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow border border-amber-300">
+                            <i class="fa-solid fa-lightbulb text-white"></i>
+                            <span>Hint (<span id="countHint">2</span>)</span>
+                        </button>
+                        <button id="btnSkip" onclick="useBoosterSkip()" class="btn-friendly bg-teal-600 hover:bg-teal-700 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-extrabold px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow border border-teal-300">
+                            <i class="fa-solid fa-forward text-emerald-200"></i>
+                            <span>Skip (<span id="countSkip">1</span>)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="flex justify-between text-xs text-slate-600 font-extrabold mb-1">
+                    <span id="queueCountInfo">Baki Soalan: 44</span>
+                    <span id="progressPercentText" class="text-blue-600">0% Selesai</span>
+                </div>
+                <div class="w-full bg-slate-100 h-3.5 rounded-full mb-5 overflow-hidden p-0.5 border border-slate-200">
+                    <div id="progressBar" class="bg-gradient-to-r from-blue-500 via-emerald-400 to-amber-400 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+
+                <!-- Question Area -->
+                <div class="mb-5">
+                    <div class="flex items-start gap-3">
+                        <span id="questionNum" class="bg-blue-600 text-white font-display text-base font-bold w-9 h-9 rounded-2xl flex items-center justify-center shrink-0 shadow-md">
+                            1
+                        </span>
+                        <div class="flex-grow">
+                            <h3 id="questionText" class="text-base sm:text-lg font-black text-slate-800 leading-snug pt-0.5 whitespace-pre-line">
+                                Memuatkan soalan...
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div id="optionsContainer" class="grid grid-cols-1 gap-2.5 mb-5"></div>
+
+                <!-- Hint Banner -->
+                <div id="hintBanner" class="hidden p-4 rounded-2xl mb-4 text-xs sm:text-sm font-bold bg-amber-100 text-amber-950 border-2 border-amber-300 flex items-start gap-2.5 shadow-sm">
+                    <i class="fa-solid fa-lightbulb text-amber-500 text-lg mt-0.5 shrink-0"></i>
+                    <div>
+                        <span class="font-extrabold uppercase">Petunjuk Buku Teks:</span> <span id="hintText" class="font-medium text-slate-800"></span>
+                    </div>
+                </div>
+
+                <!-- Feedback Banner -->
+                <div id="feedbackBanner" class="hidden p-4 rounded-2xl mb-4 text-sm font-bold flex items-start gap-3 border-2 shadow-sm">
+                    <i id="feedbackIcon" class="fa-solid text-2xl mt-0.5 shrink-0"></i>
+                    <div>
+                        <div id="feedbackTitle" class="font-black text-base"></div>
+                        <div id="feedbackText" class="mt-1 font-medium leading-relaxed"></div>
+                    </div>
+                </div>
+
+                <!-- Next Button -->
+                <div class="flex justify-end">
+                    <button id="nextBtn" onclick="nextQuestion()" class="hidden btn-friendly bg-blue-600 hover:bg-blue-700 text-white font-display font-bold text-base px-8 py-3 rounded-2xl shadow-md inline-flex items-center gap-2">
+                        <span>Soalan Seterusnya</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 3. RESULT SCREEN -->
+            <section id="resultScreen" class="hidden card-friendly rounded-3xl p-6 sm:p-10 text-center relative my-2 border-t-8 border-t-amber-400">
+                <div class="mb-3 inline-block bg-amber-100 p-4 rounded-full text-amber-600 border-2 border-amber-300 shadow-sm bubble-glow">
+                    <i class="fa-solid fa-trophy text-5xl text-amber-500"></i>
+                </div>
+
+                <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-800 mb-1">
+                    Syabas, <span id="resPlayerName" class="text-blue-600">Pelajar</span>! 🎉
+                </h2>
+                <p class="text-slate-600 font-bold text-sm sm:text-base mb-6">
+                    Anda telah berjaya menjawab <span id="resTotalCount" class="font-extrabold text-emerald-600">semua soalan</span> Praktis Sumatif Sejarah Tingkatan 1!
+                </p>
+
+                <!-- Score Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-lg mx-auto mb-6">
+                    <div class="bg-emerald-50 p-4 rounded-2xl border-2 border-emerald-200">
+                        <div class="text-xs text-emerald-700 font-black uppercase">Markah Akhir</div>
+                        <div id="finalScore" class="font-display text-3xl font-black text-emerald-600 mt-0.5">440</div>
+                    </div>
+                    <div class="bg-amber-50 p-4 rounded-2xl border-2 border-amber-200">
+                        <div class="text-xs text-amber-700 font-black uppercase">Ketepatan Awal</div>
+                        <div id="accuracyPercent" class="font-display text-3xl font-black text-amber-600 mt-0.5">85%</div>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-2xl border-2 border-indigo-200 col-span-2 sm:col-span-1">
+                        <div class="text-xs text-indigo-700 font-black uppercase">Percubaan Semula</div>
+                        <div id="wrongAttemptsCount" class="font-display text-3xl font-black text-indigo-600 mt-0.5">2</div>
+                    </div>
+                </div>
+
+                <div id="motivationMsg" class="bg-slate-50 p-4 rounded-2xl border-2 border-slate-200 mb-6 max-w-lg mx-auto text-sm text-slate-700 font-bold leading-relaxed">
+                    "Tahniah, penguasaan anda dalam sukatan Sejarah Tingkatan 1 sangat cemerlang!"
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-3">
+                    <button onclick="restartQuiz()" class="btn-friendly bg-blue-600 hover:bg-blue-700 text-white font-display font-bold text-lg px-8 py-3.5 rounded-2xl shadow-lg inline-flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span>Ulangi Kuiz</span>
+                    </button>
+                    <button onclick="toggleLeaderboardModal(true)" class="btn-friendly bg-amber-400 hover:bg-amber-500 text-slate-900 font-display text-lg px-6 py-3.5 rounded-2xl shadow-lg border-2 border-amber-200 inline-flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span>Papan Ranking</span>
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Leaderboard Modal -->
+    <div id="leaderboardModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-6 w-full max-w-lg shadow-2xl border-4 border-amber-400 relative max-h-[90vh] flex flex-col">
+            <button onclick="toggleLeaderboardModal(false)" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl w-9 h-9 flex items-center justify-center rounded-full bg-slate-100">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-4">
+                <div class="inline-block bg-amber-100 text-amber-600 p-3 rounded-full mb-1">
+                    <i class="fa-solid fa-trophy text-3xl"></i>
+                </div>
+                <h3 class="font-display text-2xl font-black text-slate-800">Papan Ranking Murid</h3>
+                <p class="text-xs font-bold text-slate-500">Kedudukan pelajar terbaik kuiz Sejarah Tingkatan 1 UASA</p>
+            </div>
+
+            <div id="leaderboardList" class="flex-grow overflow-y-auto space-y-2 pr-1 my-2"></div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                <button onclick="clearLeaderboard()" class="text-rose-500 hover:underline font-bold">Padam Rekod</button>
+                <button onclick="toggleLeaderboardModal(false)" class="bg-slate-800 text-white font-bold px-6 py-2 rounded-xl">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w-full text-center py-4 text-xs font-bold text-slate-500 bg-white/80 border-t border-slate-200">
+        Sejarah KSSM Tingkatan 1 • Praktis Sumatif Bab 1 – Bab 8 • Format UASA 2026
+    </footer>
+
+    <!-- JavaScript Quiz Logic -->
+    <script>
+        function setSafeText(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.innerText = text;
+        }
+
+        function toggleFullScreen() {
+            const doc = document.documentElement;
+            const icon = document.getElementById('fullscreenIcon');
+            const statusText = document.getElementById('fullscreenStatus');
+
+            if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                if (doc.requestFullscreen) {
+                    doc.requestFullscreen();
+                } else if (doc.msRequestFullscreen) {
+                    doc.msRequestFullscreen();
+                } else if (doc.mozRequestFullScreen) {
+                    doc.mozRequestFullScreen();
+                } else if (doc.webkitRequestFullscreen) {
+                    doc.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+                if (icon) icon.className = "fa-solid fa-compress text-purple-600";
+                if (statusText) statusText.innerText = "Keluar Skrin Penuh";
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+                if (icon) icon.className = "fa-solid fa-expand text-purple-600";
+                if (statusText) statusText.innerText = "Skrin Penuh";
+            }
+        }
+
+        // Pangkalan Data Lengkap 44 Soalan Buku Teks Sejarah Tingkatan 1 (Bab 1 - Bab 8)
+        const rawQuestionsDatabase = [
+            // ================= BAB 1 =================
+            {
+                id: 1,
+                chapter: "bab1",
+                chapterTitle: "Bab 1: Mengenali Sejarah",
+                question: "1. Bagaimanakah sejarawan mengkaji sejarah sesebuah masyarakat?",
+                options: ["A. Menaakul", "B. Berbincang", "C. Menyelidiki rekod", "D. Mengarang cerita"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. Menyelidiki rekod. Sejarawan mengkaji sejarah sesebuah masyarakat melalui penyelidikan rekod berdokumen, artifak bertulis dan bukti sejarah."
+            },
+            {
+                id: 2,
+                chapter: "bab1",
+                chapterTitle: "Bab 1: Mengenali Sejarah",
+                question: "2. Maklumat berikut berkaitan dengan pengertian sejarah oleh tokoh sejarah X.\n\n\"Sejarah merupakan penceritaan tentang tindakan manusia yang penting dan mengagumkan, serta sebab berlakunya sesuatu peristiwa tersebut.\"\n\nSiapakah X?",
+                options: ["A. E. H. Carr", "B. Herodotus", "C. Ibn Khaldun", "D. Khoo Kay Kim"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Herodotus. Tokoh sejarawan Yunani Purba ini menyatakan sejarah ialah penceritaan tentang tindakan manusia dan sebab sesuatu peristiwa itu berlaku."
+            },
+            {
+                id: 3,
+                chapter: "bab1",
+                chapterTitle: "Bab 1: Mengenali Sejarah",
+                question: "3. Artifak seperti tembikar tanah purba dikenal sebagai sumber primer kerana...",
+                options: ["A. Bersifat asli", "B. Bahan penting", "C. Digunakan oleh manusia", "D. Mempunyai sejarah tersendiri"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. Bersifat asli. Sumber primer ialah bahan yang bersifat asli dan belum diolah atau ditafsir."
+            },
+            {
+                id: 4,
+                chapter: "bab1",
+                chapterTitle: "Bab 1: Mengenali Sejarah",
+                question: "4. Menurut konsep ruang masa dalam sejarah, satu dekad bersamaan dengan...",
+                options: ["A. 10 tahun", "B. 100 tahun", "C. 1000 tahun", "D. 10 000 tahun"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. 10 tahun. Satu dekad ialah 10 tahun, satu abad ialah 100 tahun, dan satu alaf ialah 1000 tahun."
+            },
+            {
+                id: 5,
+                chapter: "bab1",
+                chapterTitle: "Bab 1: Mengenali Sejarah",
+                question: "5. Antara berikut, bahan manakah yang memberikan maklumat kepada sejarawan yang membuat kajian melalui kaedah bertulis?\n\nI. Gading\nII. Komputer\nIII. Mesin taip\nIV. Kulit kayu",
+                options: ["A. I dan II", "B. I dan IV", "C. II dan III", "D. III dan IV"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. I dan IV. Kaedah bertulis merujuk kepada catatan awal pada batu, daun lontar, kulit kayu, logam dan gading."
+            },
+            {
+                id: 6,
+                chapter: "bab1",
+                chapterTitle: "Bab 1: Mengenali Sejarah",
+                question: "6. Carta berikut berkaitan dengan kaedah lisan:\nTahap 1: Persediaan  ➔  Tahap 2: Rakaman  ➔  Tahap 3: Memproses\n\nApakah langkah pertama dalam Tahap 1 tersebut?",
+                options: ["A. Menentukan tokoh", "B. Menyediakan soalan", "C. Menentukan kaedah kajian", "D. Meyakinkan tokoh untuk memberi kerjasama"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. Menentukan tokoh. Langkah permulaan dalam tahap persediaan kaedah lisan ialah menentukan tokoh atau orang sumber."
+            },
+
+            // ================= BAB 2 =================
+            {
+                id: 7,
+                chapter: "bab2",
+                chapterTitle: "Bab 2: Zaman Air Batu",
+                question: "7. Gambar haiwan seperti Woolly Mammoth hidup pada Zaman Pleistosen. Apakah ciri utama haiwan pada zaman tersebut?",
+                options: ["A. Bersifat ganas", "B. Berbadan besar", "C. Bergerak pantas", "D. Mempunyai bulu tebal"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Berbadan besar. Ciri utama kebanyakan hidupan Zaman Pleistosen ialah bersaiz badan sangat besar dan berbulu tebal untuk mengekalkan haba."
+            },
+            {
+                id: 8,
+                chapter: "bab2",
+                chapterTitle: "Bab 2: Zaman Air Batu",
+                question: "8. Antara berikut, yang manakah hidupan yang hidup pada Zaman Jurasik?",
+                options: ["A. Dinosaur", "B. Ikan paus", "C. Woolly Mammoth", "D. Harimau bertaring panjang"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. Dinosaur. Dinosaur merupakan hidupan utama pada Zaman Jurasik sekitar 199.6 juta hingga 145.5 juta tahun dahulu."
+            },
+            {
+                id: 9,
+                chapter: "bab2",
+                chapterTitle: "Bab 2: Zaman Air Batu",
+                question: "9. Apakah elemen yang mampu mempengaruhi perubahan bentuk fizikal bumi?",
+                options: ["A. Air", "B. Iklim", "C. Haiwan", "D. Tumbuh-tumbuhan"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Iklim. Perubahan iklim dunia (daripada suhu sejuk kepada pemanasan bumi) menjadi punca utama pengglasieran dan perubahan fizikal bumi."
+            },
+            {
+                id: 10,
+                chapter: "bab2",
+                chapterTitle: "Bab 2: Zaman Air Batu",
+                question: "10. Apakah kesan proses penyejukan dan pengeringan alam sekitar global pada zaman Pliosen terhadap muka bumi?",
+                options: ["A. Pembentukan gunung", "B. Berlaku pengglasieran", "C. Penyebaran padang rumput dan savana", "D. Peningkatan paras laut"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. Penyebaran padang rumput dan savana. Iklim yang lebih sejuk dan kering pada zaman Pliosen mendorong terbentuknya kawasan padang rumput dan savana."
+            },
+            {
+                id: 11,
+                chapter: "bab2",
+                chapterTitle: "Bab 2: Zaman Air Batu",
+                question: "11. Gunung-ganang yang terdapat pada hari ini mula terbentuk secara fizikal pada Zaman...",
+                options: ["A. Miosen", "B. Pliosen", "C. Pleistosen", "D. Holosen"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. Miosen. Gunung-ganang yang wujud hari ini mula terbentuk secara fizikal pada Zaman Miosen (23 hingga 5 juta tahun dahulu)."
+            },
+            {
+                id: 12,
+                chapter: "bab2",
+                chapterTitle: "Bab 2: Zaman Air Batu",
+                question: "12. Maklumat berikut berkaitan dengan tempoh Zaman Holosen:\n(10 000 tahun dahulu hingga kini)\n\nBagaimanakah Zaman Holosen berbeza daripada Zaman Air Batu yang lain?",
+                options: ["A. Pengglasieran mula berlaku", "B. Berlaku peningkatan paras laut", "C. Pembentukan padang rumput yang luas", "D. Berlaku kemajuan dalam kehidupan manusia"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Berlaku kemajuan dalam kehidupan manusia. Zaman Holosen dicirikan dengan permulaan tamadun, aktiviti pertanian dan penciptaan teknologi manusia."
+            },
+            {
+                id: 13,
+                chapter: "bab2",
+                chapterTitle: "Bab 2: Zaman Air Batu",
+                question: "13. Ciri-ciri Zaman Air Batu Akhir:\n• Bumi mengalami cuaca panas\n• Berlaku kecairan air batu\n\nBagaimanakah perubahan cuaca tersebut mempengaruhi aktiviti harian manusia?\n\nI. Mendirikan petempatan kekal\nII. Menjalankan aktiviti pertanian\nIII. Mengeluarkan bahan makanan\nIV. Menjalankan kegiatan perdagangan",
+                options: ["A. I dan II", "B. I dan IV", "C. II dan III", "D. III dan IV"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. I dan II. Suhu bumi yang lebih panas membolehkan manusia membina petempatan kekal dan memulakan aktiviti bercucuk tanam (pertanian)."
+            },
+
+            // ================= BAB 3 =================
+            {
+                id: 14,
+                chapter: "bab3",
+                chapterTitle: "Bab 3: Zaman Prasejarah",
+                question: "14. Apakah yang dimaksudkan dengan Zaman Prasejarah?",
+                options: ["A. Zaman sebelum manusia bertamadun", "B. Zaman manusia hidup bersama haiwan", "C. Zaman manusia menggunakan alat batu", "D. Zaman sebelum manusia mengenal tulisan"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Zaman sebelum manusia mengenal tulisan. Takrifan Zaman Prasejarah ialah zaman sebelum masyarakat manusia mempunyai sistem aksara atau tulisan."
+            },
+            {
+                id: 15,
+                chapter: "bab3",
+                chapterTitle: "Bab 3: Zaman Prasejarah",
+                question: "15. Mengapakah masyarakat Zaman Paleolitik dikenali sebagai masyarakat Zaman Batu Lama?",
+                options: ["A. Belum mengenali tulisan", "B. Tinggal dalam rumah batu", "C. Menggunakan alatan batu", "D. Mencatat pada kepingan batu"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. Menggunakan alatan batu. Mereka digelar Zaman Batu kerana alatan utama yang digunakan dalam kehidupan seharian diperbuat daripada batu."
+            },
+            {
+                id: 16,
+                chapter: "bab3",
+                chapterTitle: "Bab 3: Zaman Prasejarah",
+                question: "16. Zaman Prasejarah dibahagikan kepada Zaman Batu dan Zaman Logam. Apakah bahan logam utama yang digunakan oleh manusia pada Zaman Logam?\n\nI. Besi\nII. Emas\nIII. Timah\nIV. Gangsa",
+                options: ["A. I dan II", "B. I dan IV", "C. II dan III", "D. III dan IV"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. I dan IV. Dua bahan logam utama yang ditempa untuk alatan dan senjata pada zaman tersebut ialah Besi dan Gangsa."
+            },
+            {
+                id: 17,
+                chapter: "bab3",
+                chapterTitle: "Bab 3: Zaman Prasejarah",
+                question: "17. Penemuan lukisan gua di Gua Chauvet, Perancis membuktikan bahawa masyarakat prasejarah...",
+                options: ["A. Meminati bidang seni", "B. Menggunakan teknologi moden", "C. Tidak mempunyai sistem tulisan", "D. Menjalankan kegiatan memburu binatang"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Menjalankan kegiatan memburu binatang. Lukisan haiwan pada dinding gua menceritakan pengalaman aktiviti perburuan haiwan liar."
+            },
+            {
+                id: 18,
+                chapter: "bab3",
+                chapterTitle: "Bab 3: Zaman Prasejarah",
+                question: "18. Tapak Gobekli Tepe yang ditemui di Turki membuktikan aktiviti manusia yang berkaitan dengan...",
+                options: ["A. Pertanian", "B. Pentadbiran", "C. Perdagangan", "D. Upacara ritual"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Upacara ritual. Gobekli Tepe merupakan binaan batu megalit tertua di dunia yang dibina untuk tujuan penyembahan dan upacara ritual keagamaan."
+            },
+
+            // ================= BAB 4 =================
+            {
+                id: 19,
+                chapter: "bab4",
+                chapterTitle: "Bab 4: Mengenali Tamadun",
+                question: "19. Dalam bahasa Melayu, tamadun membawa maksud suatu peradaban yang merujuk kepada...",
+                options: ["A. Budi bahasa yang tinggi", "B. Organisasi sosial yang moden", "C. Pembentukan bandar terancang", "D. Pencapaian kemajuan masyarakat"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Pencapaian kemajuan masyarakat. Peradaban merangkumi pencapaian kemajuan kebendaan, kerohanian, dan budaya yang tinggi dalam masyarakat."
+            },
+            {
+                id: 20,
+                chapter: "bab4",
+                chapterTitle: "Bab 4: Mengenali Tamadun",
+                question: "20. Tokoh Ibnu Khaldun mengemukakan konsep hadharah dan umran. Apakah ciri tamadun yang diperkatakan oleh beliau?",
+                options: ["A. Berpusat kepada wahyu", "B. Kehidupan bermasyarakat", "C. Pencapaian budaya yang kompleks", "D. Kehalusan tatasusila dan kebudayaan"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Kehidupan bermasyarakat. Ibn Khaldun menekankan bahawa tamadun berpaksikan semangat perpaduan dan kehidupan bermasyarakat di kota/bandar."
+            },
+            {
+                id: 21,
+                chapter: "bab4",
+                chapterTitle: "Bab 4: Mengenali Tamadun",
+                question: "21. \"Tamadun ialah keadaan kehidupan insan bermasyarakat yang telah mencapai taraf kehalusan tatasusila dan kebudayaan yang luhur bagi seluruh masyarakatnya.\"\n\nSiapakah tokoh yang berpandangan sedemikian?",
+                options: ["A. Khoo Kay Kim", "B. Arnold J. Toynbee", "C. Muhd. Yusof Ibrahim", "D. Syed Muhammad Naquib Al-Attas"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Syed Muhammad Naquib Al-Attas. Beliau mendefinisikan tamadun dengan memberi penekanan kepada kehalusan tatasusila dan keluhuran budaya."
+            },
+            {
+                id: 22,
+                chapter: "bab4",
+                chapterTitle: "Bab 4: Mengenali Tamadun",
+                question: "22. Tokoh sejarawan Barat Arnold J. Toynbee mengaitkan tamadun masyarakat Barat dengan pencapaian dalam aspek...\n\nI. Aqidah\nII. Kesenian\nIII. Undang-undang\nIV. Keimanan anggota masyarakat",
+                options: ["A. I dan II", "B. I dan IV", "C. II dan III", "D. III dan IV"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. II dan III. Pandangan Barat menitikberatkan pencapaian lahiriah seperti sistem undang-undang, kesenian, kesusasteraan dan kemajuan kebendaan."
+            },
+            {
+                id: 23,
+                chapter: "bab4",
+                chapterTitle: "Bab 4: Mengenali Tamadun",
+                question: "23. Mengapakah kebanyakan tamadun awal dunia bermula di lembah sungai?\n\nI. Kemajuan pertanian\nII. Kegiatan perdagangan\nIII. Kunjungan orang ramai\nIV. Lokasi upacara keagamaan",
+                options: ["A. I dan II", "B. I dan IV", "C. II dan III", "D. III dan IV"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. I dan II. Lembah sungai membekalkan tanah lanar yang subur untuk pertanian serta jalan pengangkutan untuk aktiviti perdagangan."
+            },
+
+            // ================= BAB 5 =================
+            {
+                id: 24,
+                chapter: "bab5",
+                chapterTitle: "Bab 5: Tamadun Awal Dunia",
+                question: "24. Tamadun Mesopotamia terbentuk di antara Sungai Tigris dan...",
+                options: ["A. Sungai Nil", "B. Sungai Indus", "C. Sungai Euphrates", "D. Sungai Kuning"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. Sungai Euphrates. Perkataan Mesopotamia bererti kawasan tanah di antara dua sungai iaitu Sungai Tigris dan Sungai Euphrates."
+            },
+            {
+                id: 25,
+                chapter: "bab5",
+                chapterTitle: "Bab 5: Tamadun Awal Dunia",
+                question: "25. Seni bina monumen bertingkat Ziggurat dalam Tamadun Mesopotamia dibina sebagai...",
+                options: ["A. Pusat pendidikan", "B. Pusat keagamaan", "C. Pusat kebudayaan", "D. Pusat pemerintahan"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Pusat keagamaan. Ziggurat berfungsi sebagai pusat ibadat, upacara keagamaan dan penyimpanan hasil persembahan dewa."
+            },
+            {
+                id: 26,
+                chapter: "bab5",
+                chapterTitle: "Bab 5: Tamadun Awal Dunia",
+                question: "26. Apakah faktor utama yang membolehkan masyarakat Sumer menebus guna tanah untuk menjayakan aktiviti pertanian?",
+                options: ["A. Kemajuan bandar", "B. Sistem pengairan", "C. Kebijaksanaan raja", "D. Peningkatan teknologi"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Sistem pengairan. Kemahiran membina parit, tali air dan empangan membolehkan masyarakat Sumer mengairi kawasan pertanian secara sistematik."
+            },
+            {
+                id: 27,
+                chapter: "bab5",
+                chapterTitle: "Bab 5: Tamadun Awal Dunia",
+                question: "27. \"Mesir adalah Hadiah Sungai Nil.\" - Herodotus\n\nBagaimanakah pembentukan Tamadun Mesir Purba dapat berlaku di lembah Sungai Nil?",
+                options: ["A. Kegiatan pertanian", "B. Pemerintahan beraja", "C. Perdagangan antarabangsa", "D. Kemahiran seni bina"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. Kegiatan pertanian. Limpahan banjir Sungai Nil mendepositkan tanah lanar hitam yang sangat subur untuk aktiviti tanaman makanan."
+            },
+            {
+                id: 28,
+                chapter: "bab5",
+                chapterTitle: "Bab 5: Tamadun Awal Dunia",
+                question: "28. Apakah faktor utama yang membawa kepada kestabilan dan kemakmuran kerajaan Mesir Purba yang berpusat di Thebes?",
+                options: ["A. Kekuatan raja", "B. Pembinaan monumen", "C. Peningkatan teknologi", "D. Kemajuan bidang perdagangan"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. Kekuatan raja. Kepemimpinan firaun yang berwibawa menyatukan wilayah, menjamin keselamatan serta mengurus pentadbiran negara dengan cekap."
+            },
+
+            // ================= BAB 6 =================
+            {
+                id: 29,
+                chapter: "bab6",
+                chapterTitle: "Bab 6: Peningkatan Tamadun Yunani & Rom",
+                question: "29. Acropolis di kota Athens dilindungi oleh kawasan berkubu kerana...",
+                options: ["A. Ibu kota", "B. Lokasi strategik", "C. Pusat perdagangan utama", "D. Tempat pertemuan pemimpin"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Lokasi strategik. Dibina di dataran tanah tinggi berkubu bagi tujuan kubu pertahanan menentang musuh dan pusat keagamaan dewa-dewi."
+            },
+            {
+                id: 30,
+                chapter: "bab6",
+                chapterTitle: "Bab 6: Peningkatan Tamadun Yunani & Rom",
+                question: "30. Mengapakah setiap warganegara Tamadun Yunani bertanggungjawab mempertahankan negara-kota (polis) masing-masing?",
+                options: ["A. Lokasi istana", "B. Pusat pentadbiran", "C. Tempat pertemuan", "D. Tanah suci kurniaan Dewa"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Tanah suci kurniaan Dewa. Penduduk Yunani percaya bahawa tanah kota mereka merupakan anugerah dan tempat tinggal dewa pelindung."
+            },
+            {
+                id: 31,
+                chapter: "bab6",
+                chapterTitle: "Bab 6: Peningkatan Tamadun Yunani & Rom",
+                question: "31. Rajah sistem Demokrasi Athens:\n[ Institusi X ] ➔ Menggubal undang-undang & Membincangkan kewangan / percukaian\n\nApakah institusi X?",
+                options: ["A. Juri", "B. Majlis", "C. Majistret", "D. Dewan Perhimpunan"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Dewan Perhimpunan. Dewan Perhimpunan ialah badan pembuat keputusan tertinggi dalam demokrasi Athens yang disertai oleh semua warganegara lelaki."
+            },
+            {
+                id: 32,
+                chapter: "bab6",
+                chapterTitle: "Bab 6: Peningkatan Tamadun Yunani & Rom",
+                question: "32. Apakah sistem pemerintahan paling awal yang diamalkan di Yunani?",
+                options: ["A. Tirani", "B. Monarki", "C. Aristokrasi", "D. Demokrasi"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Monarki. Sebelum melalui peralihan oligarki, aristokrasi dan demokrasi, Yunani diperintah oleh raja menerusi sistem monarki."
+            },
+            {
+                id: 33,
+                chapter: "bab6",
+                chapterTitle: "Bab 6: Peningkatan Tamadun Yunani & Rom",
+                question: "33. Rajah fungsi Majistret di Yunani:\n• Melaksanakan dasar\n• Menguruskan hal pendidikan & percukaian\n• X\n\nApakah X?",
+                options: ["A. Memungut cukai", "B. Membahas dasar", "C. Kakitangan kerajaan", "D. Menggubal undang-undang"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. Kakitangan kerajaan. Majistret bertindak sebagai sekumpulan kakitangan awam yang melaksanakan dasar-dasar kerajaan."
+            },
+            {
+                id: 34,
+                chapter: "bab6",
+                chapterTitle: "Bab 6: Peningkatan Tamadun Yunani & Rom",
+                question: "34. Mengapakah bidang seni bina dapat berkembang dengan begitu pesat dalam Tamadun Rom?\n\nI. Minat masyarakat\nII. Sokongan pentadbir\nIII. Bantuan kewangan kerajaan\nIV. Persaingan daripada tamadun lain",
+                options: ["A. I dan II", "B. I dan IV", "C. II dan III", "D. III dan IV"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. II dan III. Pemerintah Rom seperti Maharaja Julius Caesar dan Augustus memberi dorongan padu serta membiayai projek monumen mega."
+            },
+
+            // ================= BAB 7 =================
+            {
+                id: 35,
+                chapter: "bab7",
+                chapterTitle: "Bab 7: Peningkatan Tamadun India & China",
+                question: "35. Apakah faktor utama yang membolehkan kerajaan Magadha muncul sebagai kuasa penting di Lembah Ganges?",
+                options: ["A. Perpaduan penduduk", "B. Kebijaksanaan pembesar", "C. Sistem pemerintahan beraja", "D. Lokasi strategik di Lembah Ganges"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Lokasi strategik di Lembah Ganges. Kedudukan ini menguasai laluan perdagangan sungai utama serta tanah lanar yang kaya sumber bijih besi."
+            },
+            {
+                id: 36,
+                chapter: "bab7",
+                chapterTitle: "Bab 7: Peningkatan Tamadun India & China",
+                question: "36. Bagaimanakah Dinasti Nanda berjaya meluaskan pengaruh dan kuasanya di India?",
+                options: ["A. Manipulasi agama", "B. Kekuatan ketenteraan", "C. Dasar pemerintahan", "D. Kekuatan ekonomi"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Kekuatan ketenteraan. Dinasti Nanda memiliki angkatan tentera yang amat besar merangkumi ratusan ribu infantri, kavalri dan gajah perang."
+            },
+            {
+                id: 37,
+                chapter: "bab7",
+                chapterTitle: "Bab 7: Peningkatan Tamadun India & China",
+                question: "37. Mengapakah Dinasti Maurya pada zaman pemerintahan Asoka terkenal di serata dunia?",
+                options: ["A. Kekuatan ketenteraan", "B. Kemakmuran pelabuhan", "C. Penekanan aspek keagamaan", "D. Kejayaan dasar perluasan kuasa"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. Penekanan aspek keagamaan. Maharaja Asoka mengamalkan dasar diplomasi kemanusiaan dan giat menyebarkan ajaran Buddha ke serata pelosok dunia."
+            },
+            {
+                id: 38,
+                chapter: "bab7",
+                chapterTitle: "Bab 7: Peningkatan Tamadun India & China",
+                question: "38. Mengapakah Tiang Asoka didirikan di kawasan tumpuan orang ramai di seluruh wilayah pemerintahannya?",
+                options: ["A. Alat perhiasan", "B. Identiti kerajaan", "C. Lambang pemujaan rakyat", "D. Undang-undang difahami oleh rakyat"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Undang-undang difahami oleh rakyat. Titah perintah dan ajaran moral Asoka diukir pada tiang batu agar rakyat dapat membaca dan memahaminya."
+            },
+            {
+                id: 39,
+                chapter: "bab7",
+                chapterTitle: "Bab 7: Peningkatan Tamadun India & China",
+                question: "39. Zaman pemerintahan Raja Gupta diiktiraf sebagai zaman keemasan kerana...",
+                options: ["A. Agama Hindu mula diasaskan", "B. Undang-Undang Manu dilaksanakan", "C. Agama Hindu diberi penekanan dalam pemerintahan", "D. Agama Hindu berkembang dari India ke serata dunia"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. Agama Hindu diberi penekanan dalam pemerintahan. Pemerintah Gupta memartabatkan agama Hindu, sastera Sanskrit, kesenian kuil dan falsafah."
+            },
+
+            // ================= BAB 8 =================
+            {
+                id: 40,
+                chapter: "bab8",
+                chapterTitle: "Bab 8: Tamadun Islam & Sumbangannya",
+                question: "40. Mengapakah masyarakat Arab Jahiliah tidak dapat membaik pulih Empangan Maarib yang runtuh pada sekitar tahun 300 M?",
+                options: ["A. Tiada perpaduan", "B. Sentiasa berperang", "C. Kehidupan sosial lemah", "D. Tidak memerlukan empangan"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Sentiasa berperang. Sifat asabiyah dan peperangan berpanjangan antara suku kabilah menyebabkan teknologi kejuruteraan kuno musnah dan terabai."
+            },
+            {
+                id: 41,
+                chapter: "bab8",
+                chapterTitle: "Bab 8: Tamadun Islam & Sumbangannya",
+                question: "41. Apakah kepentingan Gua Hira' di Jabal Nur dalam sejarah perkembangan Islam?",
+                options: ["A. Kawasan bertapa", "B. Wilayah kelahiran", "C. Lokasi menyebarkan ajaran Islam", "D. Tempat menerima wahyu pertama"],
+                correctIndex: 3, // D
+                explanation: "Jawapan tepat: D. Tempat menerima wahyu pertama. Di Gua Hira', Nabi Muhammad SAW menerima wahyu pertama (Surah al-Alaq) melalui perantaraan Malaikat Jibril."
+            },
+            {
+                id: 42,
+                chapter: "bab8",
+                chapterTitle: "Bab 8: Tamadun Islam & Sumbangannya",
+                question: "42. Masyarakat Arab Jahiliah hidup dalam sistem kabilah. Penyatuan ahli dalam kabilah adalah diasaskan oleh...",
+                options: ["A. Keturunan", "B. Kepemimpinan", "C. Asal usul masyarakat", "D. Agama dan kepercayaan"],
+                correctIndex: 0, // A
+                explanation: "Jawapan tepat: A. Keturunan. Ikatan kabilah berasaskan pertalian darah (keturunan sepunya) yang melahirkan semangat kesukuan melampau (asabiyah)."
+            },
+            {
+                id: 43,
+                chapter: "bab8",
+                chapterTitle: "Bab 8: Tamadun Islam & Sumbangannya",
+                question: "43. Mengapakah Nabi Muhammad SAW dapat memimpin masyarakat berbilang kaum di Madinah dengan adil dan saksama?",
+                options: ["A. Berpandukan wahyu", "B. Merangka Piagam Madinah", "C. Mendapat sokongan para sahabat", "D. Menandatangani Perjanjian Aqabah"],
+                correctIndex: 1, // B
+                explanation: "Jawapan tepat: B. Merangka Piagam Madinah. Perlembagaan bertulis ini mengiktiraf hak asasi, persaudaraan kaum dan keadilan sosial bagi seluruh warga Madinah."
+            },
+            {
+                id: 44,
+                chapter: "bab8",
+                chapterTitle: "Bab 8: Tamadun Islam & Sumbangannya",
+                question: "44. Maklumat berikut berkaitan tindakan Khalifah X:\n\"Memerangi golongan murtad dan mereka yang enggan membayar zakat.\"\n\nSiapakah Khalifah X?",
+                options: ["A. Ali bin Abi Talib", "B. Uthman bin Affan", "C. Abu Bakar al-Siddiq", "D. Umar bin al-Khattab"],
+                correctIndex: 2, // C
+                explanation: "Jawapan tepat: C. Abu Bakar al-Siddiq. Khalifah Abu Bakar melancarkan Gerakan Riddah untuk menghapuskan nabi palsu dan mereka yang ingkar kewajipan zakat."
+            }
+        ];
+
+        let playerInfo = { name: "", class: "", topic: "all" };
+        let activeQuestionsList = [];
+        let questionQueue = [];
+        let totalOriginalQuestions = 0;
+        let initialScore = 0;
+        let totalFirstAttempts = 0;
+        let wrongAttempts = 0;
+        let isBGMPlaying = false;
+        let canAnswer = true;
+
+        let boosterCounts = { c5050: 2, cHint: 2, cSkip: 1 };
+        let audioCtx = null;
+
+        function updateSelectedTopicInfo() {
+            const filterVal = document.getElementById('topicFilter').value;
+            const count = filterVal === "all" ? 44 : rawQuestionsDatabase.filter(q => q.chapter === filterVal).length;
+            setSafeText('topicSummaryText', `Jumlah soalan yang akan dijawab: ${count} soalan`);
+        }
+
+        function initAudio() {
+            if (!audioCtx) {
+                try {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                } catch(e) {}
+            }
+        }
+
+        let bgmInterval = null;
+        function playBGMNotes() {
+            if (!isBGMPlaying || !audioCtx) return;
+            const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
+            const note = notes[Math.floor(Math.random() * notes.length)];
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(note, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.012, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 1.2);
+            } catch (e) {}
+        }
+
+        function toggleBGM() {
+            initAudio();
+            isBGMPlaying = !isBGMPlaying;
+            const statusText = document.getElementById('bgmStatus');
+            const icon = document.getElementById('bgmIcon');
+
+            if (isBGMPlaying) {
+                if (audioCtx && audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                if (statusText) statusText.innerText = "Muzik: ON";
+                if (icon) icon.className = "fa-solid fa-music text-amber-500 animate-bounce";
+                bgmInterval = setInterval(playBGMNotes, 480);
+            } else {
+                if (statusText) statusText.innerText = "Muzik: OFF";
+                if (icon) icon.className = "fa-solid fa-volume-xmark text-slate-400";
+                clearInterval(bgmInterval);
+            }
+        }
+
+        function playSFX(type) {
+            initAudio();
+            if (!audioCtx) return;
+
+            try {
+                if (type === 'correct') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.08);
+                    osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.16);
+                    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.35);
+                } else if (type === 'wrong') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(175, audioCtx.currentTime + 0.12);
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.3);
+                } else if (type === 'booster') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.1);
+                    gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.25);
+                } else if (type === 'complete') {
+                    [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.frequency.value = freq;
+                        g.gain.setValueAtTime(0.08, audioCtx.currentTime + i * 0.09);
+                        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + i * 0.09 + 0.4);
+                        o.start(audioCtx.currentTime + i * 0.09);
+                        o.stop(audioCtx.currentTime + i * 0.09 + 0.4);
+                    });
+                }
+            } catch(e){}
+        }
+
+        function buildQuestionObj(rawQ, isFirstAttempt = true) {
+            return {
+                ...rawQ,
+                firstAttempt: isFirstAttempt
+            };
+        }
+
+        function startQuiz() {
+            const nameEl = document.getElementById('playerName');
+            const classEl = document.getElementById('playerClass');
+            const filterEl = document.getElementById('topicFilter');
+            
+            const nameInput = nameEl ? nameEl.value.trim() : "";
+            const classInput = classEl ? classEl.value.trim() : "";
+            const selectedTopic = filterEl ? filterEl.value : "all";
+
+            if (!nameInput || !classInput) {
+                alert("Sila masukkan Nama dan Kelas anda terlebih dahulu sebelum memulakan kuiz!");
+                return;
+            }
+
+            playerInfo.name = nameInput;
+            playerInfo.class = classInput;
+            playerInfo.topic = selectedTopic;
+
+            setSafeText('displayPlayerInfo', `Pelajar: ${playerInfo.name} (${playerInfo.class})`);
+
+            initAudio();
+
+            boosterCounts = { c5050: 2, cHint: 2, cSkip: 1 };
+            updateBoosterUI();
+
+            if (selectedTopic === "all") {
+                activeQuestionsList = [...rawQuestionsDatabase];
+            } else {
+                activeQuestionsList = rawQuestionsDatabase.filter(q => q.chapter === selectedTopic);
+            }
+
+            questionQueue = activeQuestionsList.map(q => buildQuestionObj(q, true));
+
+            totalOriginalQuestions = questionQueue.length;
+            initialScore = 0;
+            totalFirstAttempts = 0;
+            wrongAttempts = 0;
+
+            document.getElementById('startScreen')?.classList.add('hidden');
+            document.getElementById('resultScreen')?.classList.add('hidden');
+            document.getElementById('quizScreen')?.classList.remove('hidden');
+
+            setSafeText('liveScore', '0');
+
+            renderQuestion();
+        }
+
+        function updateBoosterUI() {
+            setSafeText('count5050', boosterCounts.c5050);
+            setSafeText('countHint', boosterCounts.cHint);
+            setSafeText('countSkip', boosterCounts.cSkip);
+
+            const btn5050 = document.getElementById('btn5050');
+            const btnHint = document.getElementById('btnHint');
+            const btnSkip = document.getElementById('btnSkip');
+
+            if (btn5050) btn5050.disabled = boosterCounts.c5050 <= 0 || !canAnswer;
+            if (btnHint) btnHint.disabled = boosterCounts.cHint <= 0 || !canAnswer;
+            if (btnSkip) btnSkip.disabled = boosterCounts.cSkip <= 0 || !canAnswer;
+        }
+
+        function useBooster5050() {
+            if (boosterCounts.c5050 <= 0 || !canAnswer) return;
+            
+            const currentQ = questionQueue[0];
+            const optionsContainer = document.getElementById('optionsContainer');
+            if (!optionsContainer) return;
+
+            const buttons = Array.from(optionsContainer.children);
+            let wrongIndices = [];
+
+            buttons.forEach((btn, idx) => {
+                if (idx !== currentQ.correctIndex && !btn.disabled) {
+                    wrongIndices.push(idx);
+                }
+            });
+
+            if (wrongIndices.length >= 2) {
+                const toRemove = wrongIndices.slice(0, 2);
+                toRemove.forEach(i => {
+                    buttons[i].disabled = true;
+                    buttons[i].classList.add('opacity-30', 'line-through');
+                });
+
+                boosterCounts.c5050--;
+                playSFX('booster');
+                updateBoosterUI();
+            }
+        }
+
+        function useBoosterHint() {
+            if (boosterCounts.cHint <= 0 || !canAnswer) return;
+
+            const currentQ = questionQueue[0];
+            setSafeText('hintText', currentQ.explanation);
+            
+            document.getElementById('hintBanner')?.classList.remove('hidden');
+
+            boosterCounts.cHint--;
+            playSFX('booster');
+            updateBoosterUI();
+        }
+
+        function useBoosterSkip() {
+            if (boosterCounts.cSkip <= 0 || !canAnswer) return;
+
+            boosterCounts.cSkip--;
+            playSFX('booster');
+
+            const skippedQ = questionQueue.shift();
+            questionQueue.push(skippedQ);
+
+            updateBoosterUI();
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            canAnswer = true;
+            updateBoosterUI();
+
+            const currentQ = questionQueue[0];
+
+            setSafeText('subtopicBadge', currentQ.chapterTitle || "Sejarah Tingkatan 1");
+            setSafeText('questionNum', currentQ.id);
+            setSafeText('queueCountInfo', `Baki Soalan: ${questionQueue.length}`);
+
+            const progressPercent = Math.min(100, Math.round(((totalOriginalQuestions - questionQueue.length) / totalOriginalQuestions) * 100));
+            setSafeText('progressPercentText', `${progressPercent}% Selesai`);
+
+            const progressBarEl = document.getElementById('progressBar');
+            if (progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+
+            setSafeText('questionText', currentQ.question);
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            if (optionsContainer) {
+                optionsContainer.innerHTML = '';
+
+                currentQ.options.forEach((opt, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = "btn-friendly w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 bg-white hover:bg-blue-50 hover:border-blue-400 transition-all font-bold text-slate-800 flex items-center justify-between group shadow-sm";
+                    btn.onclick = () => checkAnswer(index);
+                    
+                    btn.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs sm:text-sm leading-snug font-bold">${opt}</span>
+                        </div>
+                        <i class="fa-regular fa-circle text-slate-300 group-hover:text-blue-500 shrink-0 ml-2 text-base transition-colors"></i>
+                    `;
+                    optionsContainer.appendChild(btn);
+                });
+            }
+
+            document.getElementById('hintBanner')?.classList.add('hidden');
+            document.getElementById('feedbackBanner')?.classList.add('hidden');
+            document.getElementById('nextBtn')?.classList.add('hidden');
+        }
+
+        function checkAnswer(selectedIndex) {
+            if (!canAnswer) return;
+            canAnswer = false;
+            updateBoosterUI();
+
+            const currentQ = questionQueue[0];
+            const optionsContainer = document.getElementById('optionsContainer');
+            const buttons = optionsContainer ? optionsContainer.children : [];
+            const feedbackBanner = document.getElementById('feedbackBanner');
+            const feedbackIcon = document.getElementById('feedbackIcon');
+
+            Array.from(buttons).forEach(btn => btn.disabled = true);
+
+            if (selectedIndex === currentQ.correctIndex) {
+                playSFX('correct');
+                if (buttons[selectedIndex]) {
+                    buttons[selectedIndex].className = "w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50 font-bold text-emerald-950 flex items-center justify-between shadow-sm";
+                    const icon = buttons[selectedIndex].querySelector('i');
+                    if (icon) icon.className = "fa-solid fa-circle-check text-emerald-600 text-lg shrink-0 ml-2";
+                }
+
+                if (feedbackBanner) feedbackBanner.className = "p-4 rounded-2xl mb-4 text-sm font-medium flex items-start gap-3 bg-emerald-100 text-emerald-950 border-2 border-emerald-300 shadow-sm";
+                if (feedbackIcon) feedbackIcon.className = "fa-solid fa-circle-check text-2xl text-emerald-600 mt-0.5 shrink-0";
+                
+                setSafeText('feedbackTitle', 'TAHNIAH, JAWAPAN TEPAT! 🎉');
+                setSafeText('feedbackText', currentQ.explanation);
+
+                if (currentQ.firstAttempt) {
+                    initialScore += 10;
+                    totalFirstAttempts++;
+                    setSafeText('liveScore', initialScore);
+                }
+
+                questionQueue.shift();
+
+            } else {
+                playSFX('wrong');
+                wrongAttempts++;
+
+                if (buttons[selectedIndex]) {
+                    buttons[selectedIndex].className = "w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 border-rose-400 bg-rose-50 font-bold text-rose-950 flex items-center justify-between shadow-sm";
+                    const icon = buttons[selectedIndex].querySelector('i');
+                    if (icon) icon.className = "fa-solid fa-circle-xmark text-rose-600 text-lg shrink-0 ml-2";
+                }
+
+                if (buttons[currentQ.correctIndex]) {
+                    buttons[currentQ.correctIndex].className = "w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 border-emerald-400 bg-emerald-50/80 font-bold text-emerald-950 flex items-center justify-between";
+                }
+
+                if (feedbackBanner) feedbackBanner.className = "p-4 rounded-2xl mb-4 text-sm font-medium flex items-start gap-3 bg-rose-100 text-rose-950 border-2 border-rose-300 shadow-sm";
+                if (feedbackIcon) feedbackIcon.className = "fa-solid fa-triangle-exclamation text-2xl text-rose-600 mt-0.5 shrink-0";
+                
+                setSafeText('feedbackTitle', 'KURANG TEPAT! 💡');
+                setSafeText('feedbackText', `${currentQ.explanation} Jangan risau, soalan ini akan diulangi semula di hujung giliran!`);
+
+                const wrongRawQ = rawQuestionsDatabase.find(q => q.id === currentQ.id);
+                questionQueue.shift();
+                
+                if (wrongRawQ) {
+                    const reshuffledQ = buildQuestionObj(wrongRawQ, false);
+                    questionQueue.push(reshuffledQ);
+                }
+            }
+
+            feedbackBanner?.classList.remove('hidden');
+            document.getElementById('nextBtn')?.classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            if (questionQueue.length > 0) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            playSFX('complete');
+
+            try {
+                confetti({
+                    particleCount: 160,
+                    spread: 90,
+                    origin: { y: 0.6 }
+                });
+            } catch(e){}
+
+            document.getElementById('quizScreen')?.classList.add('hidden');
+            document.getElementById('resultScreen')?.classList.remove('hidden');
+
+            const accuracy = Math.round((totalFirstAttempts / totalOriginalQuestions) * 100);
+
+            setSafeText('resPlayerName', playerInfo.name);
+            setSafeText('resTotalCount', `semua ${totalOriginalQuestions} soalan`);
+            setSafeText('finalScore', initialScore);
+            setSafeText('accuracyPercent', `${accuracy}%`);
+            setSafeText('wrongAttemptsCount', wrongAttempts);
+
+            saveScoreToLeaderboard(playerInfo.name, playerInfo.class, initialScore, accuracy);
+
+            let motivationMsg = "";
+            if (accuracy === 100) {
+                motivationMsg = "🌟 LUAR BIASA CEMERLANG! Anda telah menjawab SEMUA soalan dengan tepat pada percubaan pertama. Penguasaan sejarah anda berada pada tahap tertinggi!";
+            } else if (accuracy >= 80) {
+                motivationMsg = "👍 TAHNIAH & SYABAS! Penguasaan anda dalam silibus Sejarah Tingkatan 1 sangat kukuh. Kekalkan prestasi cemerlang ini untuk UASA!";
+            } else if (accuracy >= 50) {
+                motivationMsg = "👏 USAHA YANG SANGAT BAIK! Anda telah berjaya memperbetulkan semua kesilapan melalui ulangan giliran soalan sehingga faham!";
+            } else {
+                motivationMsg = "💪 TERUSKAN BELAJAR! Dengan menjawab soalan ulangan hingga tamat, anda kini telah mengenali fakta penting dengan lebih mendalam!";
+            }
+            setSafeText('motivationMsg', motivationMsg);
+        }
+
+        function getLeaderboardData() {
+            try {
+                const data = localStorage.getItem('sejarah_tingkatan1_uasa_leaderboard');
+                return data ? JSON.parse(data) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveScoreToLeaderboard(name, pClass, score, accuracy) {
+            try {
+                let leaderboard = getLeaderboardData();
+                
+                leaderboard.push({
+                    name: name,
+                    class: pClass,
+                    score: score,
+                    accuracy: accuracy,
+                    date: new Date().toLocaleDateString('ms-MY')
+                });
+
+                leaderboard.sort((a, b) => b.score - a.score || b.accuracy - a.accuracy);
+                leaderboard = leaderboard.slice(0, 20);
+
+                localStorage.setItem('sejarah_tingkatan1_uasa_leaderboard', JSON.stringify(leaderboard));
+            } catch (e) {}
+        }
+
+        function renderLeaderboardList() {
+            const listContainer = document.getElementById('leaderboardList');
+            if (!listContainer) return;
+
+            const leaderboard = getLeaderboardData();
+
+            if (leaderboard.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="text-center py-8 text-slate-400 font-bold text-sm italic">
+                        Belum ada rekod. Jadi yang pertama menduduki papan ranking!
+                    </div>
+                `;
+                return;
+            }
+
+            listContainer.innerHTML = '';
+            leaderboard.forEach((item, index) => {
+                let badgeClass = "bg-slate-100 text-slate-600";
+                let iconHtml = `<span class="font-bold text-xs">#${index + 1}</span>`;
+
+                if (index === 0) {
+                    badgeClass = "bg-amber-100 text-amber-700 border border-amber-300";
+                    iconHtml = `<i class="fa-solid fa-crown text-amber-500"></i>`;
+                } else if (index === 1) {
+                    badgeClass = "bg-slate-200 text-slate-700 border border-slate-300";
+                    iconHtml = `<i class="fa-solid fa-medal text-slate-400"></i>`;
+                } else if (index === 2) {
+                    badgeClass = "bg-amber-700/10 text-amber-800 border border-amber-600/30";
+                    iconHtml = `<i class="fa-solid fa-award text-amber-700"></i>`;
+                }
+
+                const itemEl = document.createElement('div');
+                itemEl.className = "flex items-center justify-between bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-sm shadow-sm";
+                itemEl.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl flex items-center justify-center ${badgeClass} shrink-0">
+                            ${iconHtml}
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-800 leading-tight">${item.name}</div>
+                            <div class="text-xs font-semibold text-slate-400 mt-0.5">${item.class} • ${item.date}</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-display font-black text-blue-600 text-base">${item.score} pt</div>
+                        <div class="text-[10px] font-bold text-slate-400">${item.accuracy}% ketepatan</div>
+                    </div>
+                `;
+                listContainer.appendChild(itemEl);
+            });
+        }
+
+        function toggleLeaderboardModal(show) {
+            const modal = document.getElementById('leaderboardModal');
+            if (modal) {
+                if (show) {
+                    renderLeaderboardList();
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+
+        function clearLeaderboard() {
+            if (confirm("Adakah anda pasti mahu memadamkan semua rekod dalam papan ranking?")) {
+                try {
+                    localStorage.removeItem('sejarah_tingkatan1_uasa_leaderboard');
+                } catch(e){}
+                renderLeaderboardList();
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('resultScreen')?.classList.add('hidden');
+            document.getElementById('startScreen')?.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
